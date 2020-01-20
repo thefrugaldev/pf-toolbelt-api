@@ -1,0 +1,31 @@
+{
+  "name": "pf-toolbelt-api",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:thefrugaldev/pf-toolbelt-api.git",
+  "author": "thefrugaldev",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.13.1"
+  },
+  "scripts": {
+    "watch": "nodemon ./start.js --ignore public/",
+    "start": "concurrently \"yarn run watch\" \"yarn run assets\" --names \"💻,📦\" --prefix name",
+    "assets": "webpack -w --display-max-modules 0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "es6-promisify": "^6.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.3.1",
+    "mongoose": "^5.8.9"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.5"
+  }
+}
