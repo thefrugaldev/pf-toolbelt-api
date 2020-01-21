@@ -3,7 +3,6 @@ mongoose.Promise = global.Promise;
 const slug = require("slugs");
 
 const budgetSchema = new mongoose.Schema({
-  // id: Auto-generated
   title: {
     type: String,
     trim: true,
