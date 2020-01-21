@@ -29,7 +29,7 @@ app.use(cookieParser());
 // });
 
 // After the above middleware, handle internal routes
-app.use("/", routes);
+app.use("/", routes); //TODO: update route to prefix 'api'
 // If above routes didnt work, return 404 and forward to error handler
 app.use(errorHandlers.notFound);
 // One of the error handlers will see if these errors are just validation errors
