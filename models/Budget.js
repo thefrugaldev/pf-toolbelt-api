@@ -8,11 +8,19 @@ const budgetSchema = new mongoose.Schema({
     trim: true,
     required: "Please provide a title for this budget"
   },
+  description: {
+    type: String,
+    trim: true
+  },
   categoryId: Number,
   month: Number,
   day: Number,
   year: Number,
-  userId: Number
+  userId: Number,
+  created: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = mongoose.model("Budget", budgetSchema);
