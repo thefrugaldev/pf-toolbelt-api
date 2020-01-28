@@ -12,6 +12,14 @@ exports.getBudgetsAsync = async (req, res) => {
   res.send(budgets);
 };
 
+exports.getBudgetByIdAsync = async (req, res, next) => {
+  const budget = await Budget.findById(req.params.id);
+
+  if (!budget) return next();
+
+  res.send(budget);
+};
+
 exports.createBudgetAsync = async (req, res) => {
   const budget = new Budget(req.body);
   await budget.save();

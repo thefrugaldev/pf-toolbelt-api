@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-const slug = require("slugs");
 
 const budgetSchema = new mongoose.Schema({
   title: {
