@@ -11,7 +11,9 @@ const budgetSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  categoryId: Number,
+  categoryId: {
+    type: mongoose.Schema.Types.ObjectId
+  },
   month: Number,
   day: Number,
   year: Number,

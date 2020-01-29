@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
 const Budget = mongoose.model("Budget");
 
-exports.defaultResponse = (req, res) => {
-  res.send("Connected!");
-};
-
+// GET
 exports.getBudgetsAsync = async (req, res) => {
   const budgets = await Budget.find();
-  console.log(budgets);
 
   res.send(budgets);
 };
@@ -20,12 +16,14 @@ exports.getBudgetByIdAsync = async (req, res, next) => {
   res.send(budget);
 };
 
+// POST
 exports.createBudgetAsync = async (req, res) => {
   const budget = new Budget(req.body);
   await budget.save();
-  res.redirect("/");
+  res.send(budget);
 };
 
+//PUT
 exports.updateBudgetAsync = async (req, res) => {
   const budget = await Budget.findByIdAndUpdate(
     { _id: req.params.id },

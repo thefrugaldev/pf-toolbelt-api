@@ -12,6 +12,7 @@ mongoose.connection.on("error", err => {
 
 // Import models
 require("./models/Budget");
+require("./models/Category");
 
 // Start application
 const app = require("./app");
