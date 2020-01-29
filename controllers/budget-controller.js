@@ -23,7 +23,7 @@ exports.createBudgetAsync = async (req, res) => {
   res.send(budget);
 };
 
-//PUT
+// PUT
 exports.updateBudgetAsync = async (req, res) => {
   const budget = await Budget.findByIdAndUpdate(
     { _id: req.params.id },
@@ -36,3 +36,6 @@ exports.updateBudgetAsync = async (req, res) => {
 
   res.send(budget);
 };
+
+// DELETE
+exports.deleteBudgetAsync = (req, res) => {};
