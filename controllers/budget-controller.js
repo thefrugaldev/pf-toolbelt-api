@@ -38,4 +38,8 @@ exports.updateBudgetAsync = async (req, res) => {
 };
 
 // DELETE
-exports.deleteBudgetAsync = (req, res) => {};
+exports.deleteBudgetAsync = async (req, res) => {
+  await Budget.findByIdAndDelete(req.params.id);
+
+  res.send(204);
+};
