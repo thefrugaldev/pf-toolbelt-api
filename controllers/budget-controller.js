@@ -3,7 +3,15 @@ const Budget = mongoose.model("Budget");
 
 // GET
 exports.getBudgetsAsync = async (req, res) => {
-  const budgets = await Budget.find();
+  let query = {};
+
+  if (req.query) {
+    for (let key in req.query) {
+      req.query[key] !== "" ? (query[key] = req.query[key]) : null;
+    }
+  }
+
+  const budgets = await Budget.find(query);
 
   res.send(budgets);
 };

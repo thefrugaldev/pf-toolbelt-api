@@ -7,6 +7,8 @@ const { catchErrors } = require("../handlers/error-handlers");
 //TODO
 // router.get("/", budgetController.defaultResponse);
 
+//TODO: Add user authorization to controllers
+
 // Budgets
 router.get("/budgets", catchErrors(budgetController.getBudgetsAsync));
 router.get("/budgets/:id", catchErrors(budgetController.getBudgetByIdAsync));
