@@ -1,3 +1,4 @@
+const Money = require("./Money").schema;
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
@@ -13,6 +14,9 @@ const budgetSchema = new mongoose.Schema({
   },
   categoryId: {
     type: mongoose.Schema.Types.ObjectId
+  },
+  price: {
+    type: String //TODO: add support for Money schema
   },
   month: Number,
   day: Number,

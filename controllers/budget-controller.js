@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Budget = mongoose.model("Budget");
+const Money = mongoose.model("Money");
 
 // GET
 exports.getBudgetsAsync = async (req, res) => {
