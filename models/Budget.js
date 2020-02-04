@@ -20,10 +20,18 @@ const budgetSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    type: {
+      type: String,
+      enum: ["EXPENSE", "SAVING"],
+      default: "EXPENSE"
+    },
     categoryId: {
       type: mongoose.Schema.Types.ObjectId
     },
-    price: {
+    savingsAccountId: {
+      type: mongoose.Schema.Types.ObjectId
+    },
+    amount: {
       type: Number,
       default: 0,
       set: setDecimalNumber,
