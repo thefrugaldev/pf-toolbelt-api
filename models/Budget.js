@@ -22,8 +22,8 @@ const budgetSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ["EXPENSE", "SAVING"],
-      default: "EXPENSE"
+      enum: ["COST", "SAVING"], // cost identifies an expenditure, while expense refers to the consumption of the item acquired
+      required: true
     },
     categoryId: {
       type: mongoose.Schema.Types.ObjectId
