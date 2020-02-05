@@ -20,27 +20,18 @@ const lineItemSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
-    type: {
-      type: String,
-      enum: ["COST", "SAVING"], // cost identifies an expenditure, while expense refers to the consumption of the item acquired
-      required: true
-    },
-    categoryId: {
-      type: mongoose.Schema.Types.ObjectId
-    },
-    savingsAccountId: {
-      type: mongoose.Schema.Types.ObjectId
-    },
+    isSavings: Boolean,
+    categoryName: String,
     amount: {
       type: Number,
       default: 0,
       set: setDecimalNumber,
       get: getDecimalNumber
     },
-    month: Number,
-    day: Number,
-    year: Number,
-    userId: Number,
+    timestamp: {
+      type: Date,
+      default: Date.now
+    },
     created: {
       type: Date,
       default: Date.now

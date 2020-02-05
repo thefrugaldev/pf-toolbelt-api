@@ -1,11 +1,6 @@
 const express = require("express");
-const session = require("express-session");
-const mongoose = require("mongoose");
-const path = require("path");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const { promisify } = require("es6-promisify");
-const expressValidator = require("express-validator");
 const routes = require("./routes/index");
 const errorHandlers = require("./handlers/error-handlers");
 

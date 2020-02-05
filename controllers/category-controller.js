@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Category = mongoose.model("Category");
-const Budget = mongoose.model("Budget");
 
 // GET
 exports.getCategoriesAsync = async (req, res) => {
@@ -19,10 +18,11 @@ exports.createCategoryAsync = async (req, res) => {
 
 // DELETE
 exports.deleteCategoryAsync = async (req, res) => {
-  await Budget.updateMany(
-    { categoryId: req.params.id },
-    { $set: { categoryId: null } }
-  );
+  //TODO: Is this really what we want to do?
+  // await MonthlyBudget.updateMany(
+  //   { categoryId: req.params.id },
+  //   { $set: { categoryId: null } }
+  // );
 
   await Category.findByIdAndDelete(req.params.id);
 

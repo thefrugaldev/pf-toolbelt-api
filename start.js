@@ -11,8 +11,9 @@ mongoose.connection.on("error", err => {
 });
 
 // Import models
-require("./models/Budget");
+require("./models/MonthlyBudget");
 require("./models/Category");
+require("./models/LineItem");
 
 // Start application
 const app = require("./app");
