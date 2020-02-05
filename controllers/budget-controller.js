@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const MonthlyBudget = mongoose.model("MonthlyBudget");
+const Budget = mongoose.model("Budget");
 
 // GET
-exports.getMonthlyBudgetsAsync = async (req, res) => {
+exports.getBudgetsAsync = async (req, res) => {
   let query = {};
 
   if (req.query) {
@@ -11,13 +11,13 @@ exports.getMonthlyBudgetsAsync = async (req, res) => {
     }
   }
 
-  const budgets = await MonthlyBudget.find(query).populate("categoryId");
+  const budgets = await Budget.find(query).populate("categoryId");
 
   res.send(budgets);
 };
 
-exports.getMonthlyBudgetByIdAsync = async (req, res, next) => {
-  const budget = await MonthlyBudget.findById(req.params.id);
+exports.getBudgetByIdAsync = async (req, res, next) => {
+  const budget = await Budget.findById(req.params.id);
 
   if (!budget) return next();
 
@@ -25,15 +25,15 @@ exports.getMonthlyBudgetByIdAsync = async (req, res, next) => {
 };
 
 // POST
-exports.createMonthlyBudgetAsync = async (req, res) => {
-  const budget = new MonthlyBudget(req.body);
+exports.createBudgetAsync = async (req, res) => {
+  const budget = new Budget(req.body);
   await budget.save();
   res.send(budget);
 };
 
 // PUT
-exports.updateMonthlyBudgetAsync = async (req, res) => {
-  const budget = await MonthlyBudget.findByIdAndUpdate(
+exports.updateBudgetAsync = async (req, res) => {
+  const budget = await Budget.findByIdAndUpdate(
     { _id: req.params.id },
     req.body,
     {
@@ -47,8 +47,8 @@ exports.updateMonthlyBudgetAsync = async (req, res) => {
 
 // DELETE
 //TODO: Do we want to allow them to delete
-// exports.deleteMonthlyBudgetAsync = async (req, res) => {
-//   await MonthlyBudget.findByIdAndDelete(req.params.id);
+// exports.deleteBudgetAsync = async (req, res) => {
+//   await Budget.findByIdAndDelete(req.params.id);
 
 //   res.send(204);
 // };
