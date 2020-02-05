@@ -5,6 +5,10 @@ const categorySchema = new mongoose.Schema({
   name: {
     type: String,
     required: "Please provide a name for this category"
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 });
 

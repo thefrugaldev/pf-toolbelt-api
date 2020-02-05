@@ -11,13 +11,17 @@ exports.getBudgetsAsync = async (req, res) => {
     }
   }
 
-  const budgets = await Budget.find(query).populate("categoryId");
+  const budgets = await Budget.find(query)
+    .populate("categories")
+    .populate("lineItems");
 
   res.send(budgets);
 };
 
 exports.getBudgetByIdAsync = async (req, res, next) => {
-  const budget = await Budget.findById(req.params.id);
+  const budget = await Budget.findById(req.params.id)
+    .populate("categories")
+    .populate("lineItems");
 
   if (!budget) return next();
 
