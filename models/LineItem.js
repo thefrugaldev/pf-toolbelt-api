@@ -9,7 +9,7 @@ const getDecimalNumber = val => {
   return (val / 100).toFixed(2);
 };
 
-const budgetSchema = new mongoose.Schema(
+const lineItemSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -26,8 +26,7 @@ const budgetSchema = new mongoose.Schema(
       required: true
     },
     categoryId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category"
+      type: mongoose.Schema.Types.ObjectId
     },
     savingsAccountId: {
       type: mongoose.Schema.Types.ObjectId
@@ -50,4 +49,4 @@ const budgetSchema = new mongoose.Schema(
   { toJSON: { getters: true }, toObject: { getters: true } }
 );
 
-module.exports = mongoose.model("Budget", budgetSchema);
+module.exports = mongoose.model("LineItem", lineItemSchema);

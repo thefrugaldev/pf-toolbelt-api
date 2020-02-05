@@ -11,7 +11,7 @@ exports.getBudgetsAsync = async (req, res) => {
     }
   }
 
-  const budgets = await Budget.find(query);
+  const budgets = await Budget.find(query).populate("categoryId");
 
   res.send(budgets);
 };
