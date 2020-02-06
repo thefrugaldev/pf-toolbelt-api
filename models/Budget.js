@@ -3,8 +3,14 @@ mongoose.Promise = global.Promise;
 
 const budgetSchema = new mongoose.Schema(
   {
-    month: Number,
-    year: Number,
+    month: {
+      type: Number,
+      default: new Date().getMonth() + 1
+    },
+    year: {
+      type: Number,
+      default: new Date().getFullYear()
+    },
     categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
     lineItems: [{ type: mongoose.Schema.Types.ObjectId, ref: "LineItem" }],
     created: {
