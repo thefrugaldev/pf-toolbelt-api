@@ -31,7 +31,7 @@ const lineItemSchema = new mongoose.Schema(
       set: setDecimalNumber,
       get: getDecimalNumber
     },
-    timestamp: {
+    date: {
       type: Date,
       default: Date.now
     },
