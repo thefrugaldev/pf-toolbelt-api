@@ -1,16 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const budgetController = require("../controllers/budget-controller");
+const lineItemController = require("../controllers/line-item-controller");
 const categoryController = require("../controllers/category-controller");
 const { catchErrors } = require("../handlers/error-handlers");
 
 //TODO: Add user authorization to controllers
 // Budgets
-router.get("/budgets", catchErrors(budgetController.getBudgetsAsync));
-// router.get("/budgets/:id", catchErrors(budgetController.getBudgetByIdAsync));
-router.post("/budgets", catchErrors(budgetController.createBudgetAsync));
-// router.put("/budgets/:id", catchErrors(budgetController.updateBudgetAsync));
-// router.delete("/budgets/:id", catchErrors(budgetController.deleteBudgetAsync));
+router.get("/line-items", catchErrors(lineItemController.getLineItemsAsync));
+router.get(
+  "/line-items/:id",
+  catchErrors(lineItemController.getBudgetByIdAsync)
+);
+router.post("/line-items", catchErrors(lineItemController.createLineItemAsync));
+router.put(
+  "/line-items/:id",
+  catchErrors(lineItemController.updateBudgetAsync)
+);
+router.delete(
+  "/line-items/:id",
+  catchErrors(lineItemController.deleteBudgetAsync)
+);
 
 // // Categories
 router.get("/categories", catchErrors(categoryController.getCategoriesAsync));

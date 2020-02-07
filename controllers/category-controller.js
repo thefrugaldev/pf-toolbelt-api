@@ -17,14 +17,15 @@ exports.createCategoryAsync = async (req, res) => {
 };
 
 // DELETE
-exports.deleteCategoryAsync = async (req, res) => {
-  //TODO: Is this really what we want to do?
-  // await MonthlyBudget.updateMany(
-  //   { categoryId: req.params.id },
-  //   { $set: { categoryId: null } }
-  // );
+//TODO: Do we want to set an isActive flag to replicate soft deletes?
+// exports.deleteCategoryAsync = async (req, res) => {
+//   TODO: Is this really what we want to do?
+//   await MonthlyBudget.updateMany(
+//     { categoryId: req.params.id },
+//     { $set: { categoryId: null } }
+//   );
 
-  await Category.findByIdAndDelete(req.params.id);
+//   await Category.findByIdAndDelete(req.params.id);
 
-  res.sendStatus(204);
-};
+//   res.sendStatus(204);
+// };

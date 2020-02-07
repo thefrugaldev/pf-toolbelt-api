@@ -21,7 +21,10 @@ const lineItemSchema = new mongoose.Schema(
       trim: true
     },
     isSavings: Boolean,
-    categoryName: String,
+    categoryId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category"
+    },
     amount: {
       type: Number,
       default: 0,
