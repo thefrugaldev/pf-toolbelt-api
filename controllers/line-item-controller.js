@@ -11,15 +11,13 @@ exports.getLineItemsAsync = async (req, res) => {
     }
   }
 
-  const lineItems = await LineItem.find(query).populate("categories");
+  const lineItems = await LineItem.find(query).populate("category");
 
   res.send(lineItems);
 };
 
 exports.getLineItemByIdAsync = async (req, res, next) => {
-  const lineItem = await LineItem.findById(req.params.id).populate(
-    "categories"
-  );
+  const lineItem = await LineItem.findById(req.params.id).populate("category");
 
   if (!lineItem) return next();
 

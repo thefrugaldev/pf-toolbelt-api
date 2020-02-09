@@ -21,7 +21,7 @@ const lineItemSchema = new mongoose.Schema(
       trim: true
     },
     isSavings: Boolean,
-    categoryId: {
+    category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category"
     },
