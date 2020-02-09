@@ -8,17 +8,21 @@ const { catchErrors } = require("../handlers/error-handlers");
 // Budgets
 router.get("/line-items", catchErrors(lineItemController.getLineItemsAsync));
 router.get(
+  "/line-items/:month/:year",
+  catchErrors(lineItemController.getLineItemsByMonthAndYear)
+);
+router.get(
   "/line-items/:id",
-  catchErrors(lineItemController.getBudgetByIdAsync)
+  catchErrors(lineItemController.getLineItemByIdAsync)
 );
 router.post("/line-items", catchErrors(lineItemController.createLineItemAsync));
 router.put(
   "/line-items/:id",
-  catchErrors(lineItemController.updateBudgetAsync)
+  catchErrors(lineItemController.updateLineItemAsync)
 );
 router.delete(
   "/line-items/:id",
-  catchErrors(lineItemController.deleteBudgetAsync)
+  catchErrors(lineItemController.deleteLineItemAsync)
 );
 
 // // Categories
