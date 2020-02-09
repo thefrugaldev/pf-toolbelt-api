@@ -16,20 +16,6 @@ exports.getLineItemsAsync = async (req, res) => {
   res.send(lineItems);
 };
 
-// exports.getLineItemsByMonthAndYear = async (req, res) => {
-//   console.log(req.params.month);
-
-//   const lineItems = await LineItem.aggregate([
-//     {
-//       $project: { year: { $year: "$date" }, month: { $month: "$date" } }
-//     },
-//     { $match: { year: 2020, month: 2 } }
-//   ]);
-//   console.log(lineItems);
-
-//   res.send(lineItems);
-// };
-
 exports.getLineItemByIdAsync = async (req, res, next) => {
   const lineItem = await LineItem.findById(req.params.id).populate(
     "categories"
