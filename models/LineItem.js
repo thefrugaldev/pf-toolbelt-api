@@ -20,7 +20,10 @@ const lineItemSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
-    isSavings: Boolean,
+    isSavings: {
+      type: Boolean,
+      default: false
+    },
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category"
